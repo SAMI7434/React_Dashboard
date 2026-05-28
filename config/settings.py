@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-##%b&0*zv&$^yhd%luh8)^=6oue=3!qfx(c%1&6161a0on+!m-
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "react-dashboard-wqmc.onrender.com",
+    "https://react-dashboard-wqmc.onrender.com",
     "localhost",
     "127.0.0.1",
 ]
