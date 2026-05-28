@@ -27,9 +27,9 @@ SECRET_KEY = 'django-insecure-##%b&0*zv&$^yhd%luh8)^=6oue=3!qfx(c%1&6161a0on+!m-
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "https://react-dashboard-wqmc.onrender.com",
+    "react-dashboard-wqmc.onrender.com",
     "localhost",
-    "127.0.0.1",
+    "127.0.0.1"
 ]
 
 
@@ -143,8 +143,16 @@ REST_FRAMEWORK = {
     ],
 }
 
+# CORS Settings
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
+    'http://127.0.0.1:5173',
+]
+
+# Add Vercel preview and production domains (configure via environment variable)
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://\w+\.vercel\.app$",  # Vercel preview URLs
+    r"^https://your-domain\.com$",   # Custom domain (update this)
 ]
 
 # File upload settings
