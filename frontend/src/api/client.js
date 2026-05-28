@@ -23,8 +23,15 @@ export const apiFetch = async (path, options = {}) => {
   })
 
   if (!response.ok) {
-    const errorText = await response.text()
-    throw new Error(errorText || 'Request failed')
+    let errorMessage = `Request failed (${response.status})`
+    try {
+      const errorData = await response.json()
+      errorMessage = errorData.detail || errorData.message || errorData.error || errorMessage
+    } catch {
+      const text = await response.text()
+      if (text) errorMessage = text
+    }
+    throw new Error(errorMessage)
   }
 
   if (response.status === 204) {
