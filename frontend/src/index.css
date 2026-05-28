@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: #0f172a;
+  --surface-soft: #111827;
+  --surface-strong: #0b1120;
+  --accent: #06b6d4;
+  --accent-strong: #0ea5e9;
+  --accent-warm: #f97316;
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background: radial-gradient(circle at top left, #1e293b 0%, #0f172a 45%, #020617 100%);
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.glass-panel {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.4);
+}
+
+.section-divider {
+  border-top: 1px solid rgba(148, 163, 184, 0.2);
+}
