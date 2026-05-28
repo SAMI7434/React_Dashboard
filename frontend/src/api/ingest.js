@@ -6,17 +6,17 @@ export const getMe = () => apiFetch('/auth/me/')
 export const uploadCsv = (file) => {
   const formData = new FormData()
   formData.append('file', file)
-  return apiFetch('/upload/', { method: 'POST', body: formData })
+  return apiFetch('/ingest/upload/', { method: 'POST', body: formData })
 }
 
-export const getDashboard = () => apiFetch('/dashboard/')
-export const getUploads = () => apiFetch('/uploads/')
+export const getDashboard = () => apiFetch('/ingest/dashboard/')
+export const getUploads = () => apiFetch('/ingest/uploads/')
 export const getRecords = (params = {}) => {
   const query = new URLSearchParams(params).toString()
   const suffix = query ? `?${query}` : ''
-  return apiFetch(`/records/${suffix}`)
+  return apiFetch(`/ingest/records/${suffix}`)
 }
-export const getIssues = () => apiFetch('/issues/')
+export const getIssues = () => apiFetch('/ingest/issues/')
 
-export const approveRecord = (recordId) => apiFetch(`/records/${recordId}/approve/`, { method: 'POST' })
-export const rejectRecord = (recordId) => apiFetch(`/records/${recordId}/reject/`, { method: 'POST' })
+export const approveRecord = (recordId) => apiFetch(`/ingest/records/${recordId}/approve/`, { method: 'POST' })
+export const rejectRecord = (recordId) => apiFetch(`/ingest/records/${recordId}/reject/`, { method: 'POST' })
