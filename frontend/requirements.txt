@@ -1,0 +1,26 @@
+# Frontend Dependencies (Node.js/npm)
+# Install using: npm install
+# Or: npm install --legacy-peer-deps
+
+# Core Framework
+react@18.2.0
+react-dom@18.2.0
+react-router-dom@6.26.1
+
+# Build Tool
+vite@5.4.1
+@vitejs/plugin-react@4.3.1
+
+# HTTP Client
+axios@1.16.1
+
+# UI & Icons
+lucide-react@1.17.0
+
+# Styling
+tailwindcss@3.4.10
+autoprefixer@10.4.20
+postcss@8.4.41
+
+# Charts
+recharts@2.12.7
