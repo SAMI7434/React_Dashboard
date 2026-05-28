@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-##%b&0*zv&$^yhd%luh8)^=6oue=3!qfx(c%1&6161a0on+!m-
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 
 # Allowed Hosts - read from environment variable with fallback
@@ -178,11 +178,10 @@ REST_FRAMEWORK = {
 
 
 # CORS Settings
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://react-dashboard-wqmc.onrender.com",
-]
+CORS_ALLOWED_ORIGINS = os.environ.get(
+    'CORS_ALLOWED_ORIGINS',
+    'http://localhost:5173,http://127.0.0.1:5173,https://react-dashboard-wqmc.onrender.com'
+).split(',')
 
 
 # Allow Vercel preview deployments
