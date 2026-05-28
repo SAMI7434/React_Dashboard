@@ -19,18 +19,12 @@ SECRET_KEY = 'django-insecure-##%b&0*zv&$^yhd%luh8)^=6oue=3!qfx(c%1&6161a0on+!m-
 DEBUG = True
 
 
-# Allowed Hosts
-ALLOWED_HOSTS = [
-    "react-dashboard-wqmc.onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
+# Allowed Hosts - read from environment variable with fallback
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 
-# CSRF Trusted Origins
-CSRF_TRUSTED_ORIGINS = [
-    "https://react-dashboard-wqmc.onrender.com",
-]
+# CSRF Trusted Origins - read from environment variable with fallback
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://react-dashboard-wqmc.onrender.com,http://localhost:5173').split(',')
 
 
 # Required for Render HTTPS proxy
@@ -57,6 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # WhiteNoise for static files
 
     'corsheaders.middleware.CorsMiddleware',
 
@@ -165,6 +160,8 @@ USE_TZ = True
 
 # Static files
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Django REST Framework
